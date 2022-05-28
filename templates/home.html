@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}  
+
+{% if user.is_authenticated %}
+            
+<form action="addimage">
+{% csrf_token %}
+<button type="submit" style="border: 2px solid black; background-color:rgb(24, 86, 201)">Add Image</button>
+</form>
+    <center>
+        <form action="opencam" method="post">
+            {% csrf_token %}
+        <div id="my_camera"> </div> 
+        <button onload="runCam()" type="submit" style="border: 2px solid black; background-color:green">Open Camera</button>
+
+        
+        </form>
+        {% if name %}
+        
+        <h2>name : {{name}}</h2>
+
+        {% endif %}
+        {% if context %}
+
+        <h2>{{context}}</h2>
+
+        {% endif %}
+    </center>
+{% else %}
+<h3></h3>
+{% endif %}
+
+<script>
+    function runCam(){
+    Webcam.set({
+        width: 320,
+        height: 240,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+        });
+    Webcam.attach('#my_camera');
+  }
+</script>
+
+    {% endblock %}
+
+    

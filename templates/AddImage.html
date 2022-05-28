@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}  
+
+{% if user.is_authenticated %}
+            
+<form action="addimage" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+<input type="file" id="img" name="img" accept="image/*" >
+<input type="text" placeholder="name" name="name">
+<input type="submit">
+</form>
+    
+{% else %}
+<h3></h3>
+{% endif %}
+    {% endblock %}
+
+    
