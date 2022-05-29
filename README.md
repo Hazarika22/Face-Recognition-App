@@ -22,6 +22,8 @@ To run the program :
  
  
  Now you are ready to use the app.
+ 
+ Note : Python 3.8.5 is prefered.
    
 
 
